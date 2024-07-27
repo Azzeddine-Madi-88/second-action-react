@@ -4,16 +4,7 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-            - name: Install Homebrew
-              run: |
-                /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-                test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-                test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-                echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
-            - name: Install NodeJs
-              run: /home/linuxbrew/.linuxbrew/bin/brew install node
-            - name: Test code
-              run: |
-                npm test
-                npm install
-
+            - name: Get code
+              uses: actions/checkout@v4
+            - name: Test
+              run: npm test
