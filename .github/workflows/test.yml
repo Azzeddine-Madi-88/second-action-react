@@ -6,7 +6,7 @@ jobs:
         steps:
             - name: Get code
               run: |
-                apt install nodejs
+                sudo apt install nodejs
                 npm install
             - name: Test code
               run: npm test
