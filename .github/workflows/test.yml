@@ -6,10 +6,10 @@ jobs:
         steps:
             - name: Install Homebrew
               run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-            - name: Get code
-              run: |
-                sudo apt install nodejs
-                npm install
+            - name: Install NodeJs
+              run: brew install node
             - name: Test code
-              run: npm test
+              run: |
+                npm test
+                npm install
 
