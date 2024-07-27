@@ -11,7 +11,7 @@ jobs:
                 test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
                 echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
             - name: Install NodeJs
-              run: brew install node
+              run: /home/linuxbrew/.linuxbrew/bin/brew install node
             - name: Test code
               run: |
                 npm test
