@@ -1,0 +1,23 @@
+name: Deploy Project
+on: push
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get code
+              uses: actions/checkout@v4
+            - name: Npm Install
+              run: npm ci
+            - name: Test
+              run: npm test
+    deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Get code
+          uses: actions/checkout@v4
+        - name: Npm Install
+          run: npm ci
+        - name: Build project
+          run: npm run build
+        - name: Dpeloy
+          run: echo "Deploying..."
