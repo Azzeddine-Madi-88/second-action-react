@@ -12,6 +12,11 @@ jobs:
         steps:
             - name: Get code
               uses: actions/checkout@v4
+            - name: Cache dependency
+              uses: actions/cache@v4
+              with:
+                path: ~/.npm
+                key: npm-${{ hashFiles('**/package-lock.json') }}
             - name: Npm Install
               run: npm ci
             - name: Test
@@ -24,6 +29,11 @@ jobs:
       steps:
         - name: Get code
           uses: actions/checkout@v4
+        - name: Cache dependency
+          uses: actions/cache@v4
+          with:
+            path: ~/.npm
+            key: npm-${{ hashFiles('**/package-lock.json') }}
         - name: Npm Install
           run: npm ci
         - name: Build project
